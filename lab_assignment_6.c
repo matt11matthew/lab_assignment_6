@@ -1,8 +1,27 @@
 #include <stdio.h>
+#include <malloc.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+    if (low <= high) {
+
+
+        int mid = (low + high) / 2;
+
+        if (value==numbers[mid]){
+            return mid;
+        }
+        if (value < numbers[mid]) { // CHECK LEFT
+            int find = search(numbers, low, mid - 1, value);
+            return find;
+        } else if (value > numbers[mid]) { // CHECK RIGHT
+            int find = search(numbers, mid + 1, high, value);
+            return find;
+        } else {
+            return 1;
+        }
+    }
+    return -1;
 }
 
 void printArray(int numbers[], int sz)
