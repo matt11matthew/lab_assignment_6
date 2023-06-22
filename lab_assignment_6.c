@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <malloc.h>
 
+/**
+ *
+ * @param numbers array
+ * @param low min range
+ * @param high max index
+ * @param value
+ * @return Returns index of searched value using binary search
+ * If the value doesnt exist in the array the returned value will be -1. 
+ */
 int search(int numbers[], int low, int high, int value) 
 {
 
@@ -11,7 +20,7 @@ int search(int numbers[], int low, int high, int value)
         int mid = (low + high) / 2;
 
         if (value==numbers[mid]){
-            return mid;
+            return mid; // Returns index
         }
         if (value < numbers[mid]) { // CHECK LEFT
             int find = search(numbers, low, mid - 1, value);
