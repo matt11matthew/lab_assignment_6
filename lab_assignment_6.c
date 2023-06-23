@@ -13,12 +13,14 @@
 int search(int numbers[], int low, int high, int value) 
 {
 
-//    if (low==high)return (low + high) / 2;
+    if (low==high) {
+        return -1;
+    }
     if (low <= high) {
 
 
         int mid = (low + high) / 2;
-        
+
         if (value < numbers[mid]) { // CHECK LEFT
             int find = search(numbers, low, mid - 1, value);
             return find;
